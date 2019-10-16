@@ -38,8 +38,7 @@ object ListModifiers {
 
   //P03
   def kth[A](k: Int, list: List[A]): A = {
-    //if (k >= 0 && k < list.size) list(k)
-    //else throw new IllegalArgumentException
+    //if (k >= 0 && k < list.size) list(k) else throw new IllegalArgumentException
 
     @tailrec
     def kthTailRec(count: Int, result: List[A]): A = {
@@ -50,20 +49,41 @@ object ListModifiers {
         case (n, _ :: tail) => kthTailRec(n - 1, tail)
       }
     }
-    kth(k, list)
+
+    kthTailRec(k, list)
   }
 
   //P04
   def length[A](list: List[A]): Int = {
+    //list.length
+    //list.size
+    //list.foldLeft(0) { (count, _) => count + 1
 
     @tailrec
     def lengthTailRec(count: Int, result: List[A]): Int = {
       result match {
         case Nil => count
-        case h :: Nil => count + 1
-        case h :: tail => lengthTailRec(count + 1, tail)
+        case _ :: Nil => count + 1
+        case _ :: tail => lengthTailRec(count + 1, tail)
       }
     }
+
     lengthTailRec(0, list)
+  }
+
+  //P05
+  def reverse[A](list: List[A]): List[A] = {
+    //list.reverse
+
+    @tailrec
+    def reverseTailRec(curList: List[A], result: List[A]): List[A] = {
+      (curList) match {
+        case Nil => throw new IllegalArgumentException
+        case h :: Nil => h :: result
+        case h :: tail => reverseTailRec(tail, h :: result)
+      }
+    }
+
+    reverseTailRec(list, Nil)
   }
 }

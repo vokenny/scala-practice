@@ -20,4 +20,22 @@ class ListModifiersSpec extends FlatSpec  {
       ListModifiers.kth(-1, List(1, 1, 2, 3, 5, 8))
     }
   }
+
+  "List Modifier method length" should "return the kth element in a given list" in {
+    assert(ListModifiers.length(List(1, 1, 2, 3, 5, 8)) == 6)
+  }
+
+  it should "return count of 0 for an empty list" in {
+    assert(ListModifiers.length(Nil) == 0)
+  }
+
+  "List Modifier method reverse" should "return the given list in reverse" in {
+    assert(ListModifiers.reverse(List(1, 1, 2, 3, 5, 8)) == List(8, 5, 3, 2, 1, 1))
+  }
+
+  it should "return count of 0 for an empty list" in {
+    assertThrows[IllegalArgumentException] {
+      ListModifiers.reverse(Nil)
+    }
+  }
 }

@@ -13,4 +13,7 @@ object Main extends App {
 
   println("P04 (*) Find the number of elements of a list")
   println(ListModifiers.length(fibonacciList))
+
+  println("P05 (*) Reverse a list")
+  println(ListModifiers.reverse(fibonacciList))
 }

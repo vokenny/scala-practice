@@ -5,6 +5,7 @@ class ListModifiersSpec extends FlatSpec  {
   val fibonacciList: List[Int] = 1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
+  val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
   "List Modifier method last" should "return the last element in a given list" in {
     assert(ListModifiers.last(fibonacciList) == 8)
@@ -59,5 +60,13 @@ class ListModifiersSpec extends FlatSpec  {
 
   "List Modifier method flatten" should "return flat list" in {
     assert(ListModifiers.flatten(unflatList) == fibonacciList)
+  }
+
+  "List Modifier method compress" should "return list with duplicates removed" in {
+    assert(ListModifiers.compress(symbolsList) == List('a, 'b, 'c, 'a, 'd, 'e))
+  }
+
+  it should "return an empty list for a input of empty list" in {
+    assert(ListModifiers.compress(List()) == List())
   }
 }

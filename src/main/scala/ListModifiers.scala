@@ -5,8 +5,6 @@ object ListModifiers {
   //P01
   def last[A](list: List[A]): A = {
     //list.last
-    //list.reverse.head
-    //list(list.size - 1)
 
     @tailrec
     def lastTailRec(result: List[A]): A = {
@@ -77,8 +75,8 @@ object ListModifiers {
     //list.foldLeft(List[A]()) { (result, h) =>  h :: result}
 
     @tailrec
-    def reverseTailRec(curList: List[A], result: List[A]): List[A] = {
-      (curList) match {
+    def reverseTailRec(l: List[A], result: List[A]): List[A] = {
+      l match {
         case Nil => throw new IllegalArgumentException
         case h :: Nil => h :: result
         case h :: tail => reverseTailRec(tail, h :: result)
@@ -110,10 +108,28 @@ object ListModifiers {
   }
 
   //P07
-  def flatten[A](list: List[Any]): List[Any] = {
-    list flatMap  {
+  def flatten[A](list: List[A]): List[Any] = {
+    list flatMap {
       case l: List[_] => flatten(l)
       case e => List(e)
     }
+  }
+
+  //P08
+  def compress[A](list: List[A]): List[A] = {
+    //list.foldRight(List[A]()) { (h, r) =>
+    //  if (r.isEmpty || r.head != h) h :: r
+    //  else r
+    //}
+
+    @tailrec
+    def compressTailRec(l: List[A], result: List[A]): List[A] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail => compressTailRec(tail.dropWhile(_ == h), h :: result)
+      }
+    }
+
+    compressTailRec(list, Nil)
   }
 }

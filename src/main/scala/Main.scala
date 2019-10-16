@@ -3,6 +3,7 @@ object Main extends App {
   val fibonacciList: List[Int] = 1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
+  val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
   println("\nP01 (*) Find the last element of a list")
   println(ListModifiers.last(fibonacciList))
@@ -25,4 +26,7 @@ object Main extends App {
 
   println("\nP07 (**) Flatten a nested list structure")
   println(ListModifiers.flatten(unflatList))
+
+  println("\nP08 (**) Eliminate consecutive duplicates of list elements")
+  println(ListModifiers.compress(symbolsList))
 }

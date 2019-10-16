@@ -74,6 +74,7 @@ object ListModifiers {
   //P05
   def reverse[A](list: List[A]): List[A] = {
     //list.reverse
+    //list.foldLeft(List[A]()) { (result, h) =>  h :: result}
 
     @tailrec
     def reverseTailRec(curList: List[A], result: List[A]): List[A] = {
@@ -85,5 +86,34 @@ object ListModifiers {
     }
 
     reverseTailRec(list, Nil)
+  }
+
+  //P06
+  def isPalindrome[A](list: List[A]): Boolean = {
+    //list == list.reverse
+    //val rev = list.foldLeft(List[A]()) { (result, h) =>  h :: result}
+    //if (list == rev) true else false
+
+    @tailrec
+    def isPalindromeTailRec(l: List[A]): Boolean = {
+      l match {
+        case Nil => throw new IllegalArgumentException
+        case h :: Nil => true
+        case h :: t :: Nil => if (h == t) true else false
+        case h :: tail =>
+          if (h == l.last) isPalindromeTailRec(l.drop(1).dropRight(1))
+          else false
+      }
+    }
+
+    isPalindromeTailRec(list)
+  }
+
+  //P07
+  def flatten[A](list: List[Any]): List[Any] = {
+    list flatMap  {
+      case l: List[_] => flatten(l)
+      case e => List(e)
+    }
   }
 }

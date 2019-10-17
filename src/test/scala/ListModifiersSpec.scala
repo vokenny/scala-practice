@@ -7,10 +7,8 @@ class ListModifiersSpec extends FlatSpec {
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
-  Seq(fibonacciList, 8).foreach { case (input: List[Any], output: Int) =>
-    "List Modifier method last" should "return the last element in a given list" in {
-      assert(ListModifiers.last(input) == output)
-    }
+  "List Modifier method last" should "return the last element in a given list" in {
+    assert(ListModifiers.last(fibonacciList) == 8)
   }
 
   "List Modifier method penultimare" should "return the penultimate element in a given list" in {
@@ -82,10 +80,8 @@ class ListModifiersSpec extends FlatSpec {
       List('e, 'e, 'e, 'e)))
   }
 
-  Seq((symbolsList, List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd),
-    (4, 'e))), (List(), List())).foreach { case (input: List[Any], output: List[(Int, Any)]) =>
-    "List Modifier method encode" should "return list with run-length encoding data compression" in {
-      assert(ListModifiers.encode(input) == output)
-    }
+  "List Modifier method encode" should "return list with run-length encoding data compression" in {
+    assert(ListModifiers.encode(symbolsList) == List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
+    assert(ListModifiers.encode(List()) == List())
   }
 }

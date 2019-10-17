@@ -3,17 +3,17 @@
 99 Scala problems
 http://aperiodic.net/phil/scala/s-99/
 
-First Header | Second Header
+Problem Code | Status
 ------------ | -------------
-P01 | (/)
-P02 | (/)
-P03 | (/)
-P04 | (/)
-P05 | (/)
-P06 | (/)
-P07 | (/)
-P08 | (/)
-P09 | (/)
+P01 | :heavy_check_mark:
+P02 | :heavy_check_mark:
+P03 | :heavy_check_mark:
+P04 | :heavy_check_mark:
+P05 | :heavy_check_mark:
+P06 | :heavy_check_mark:
+P07 | :heavy_check_mark:
+P08 | :heavy_check_mark:
+P09 | :heavy_check_mark:
 P10 |
 P11 |
 P12 |

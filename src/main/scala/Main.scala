@@ -4,6 +4,7 @@ object Main extends App {
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  val encodedList = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
 
   println("\nP01 (*) Find the last element of a list")
   println(ListModifiers.last(fibonacciList))
@@ -38,4 +39,7 @@ object Main extends App {
 
   println("\nP11 (*) Modified run-length encoding")
   println(ListModifiers.encodeModified(symbolsList))
+
+  println("\nP12 (**) Decode a run-length encoded list")
+  println(ListModifiers.decode(encodedList))
 }

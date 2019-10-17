@@ -184,4 +184,19 @@ object ListModifiers {
 
     encodeModTailRec(list, Nil)
   }
+
+  //P12
+  def decode[A](list: List[(Int, A)]): List[A] = {
+    //list flatMap { e => List.fill(e._1)(e._2)}
+
+    @tailrec
+    def decodeTailRec(l: List[(Int, A)], result: List[A]): List[A] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail => decodeTailRec(tail, List.fill(h._1)(h._2) ::: result)
+      }
+    }
+
+    decodeTailRec(list, Nil)
+  }
 }

@@ -6,6 +6,7 @@ class ListModifiersSpec extends FlatSpec {
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  val encodedList = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
 
   "List Modifier method last" should "return the last element in a given list" in {
     assert(ListModifiers.last(fibonacciList) == 8)
@@ -88,5 +89,10 @@ class ListModifiersSpec extends FlatSpec {
   "List Modifier method encodeModified" should "return list with run-length encoding data compression" in {
     assert(ListModifiers.encodeModified(symbolsList) == List((4, 'a), 'b, (2, 'c), (2, 'a), 'd, (4, 'e)))
     assert(ListModifiers.encodeModified(List()) == List())
+  }
+
+  "List Modifier method decode" should "return list with decoded/expanded list" in {
+    assert(ListModifiers.decode(encodedList) == symbolsList)
+    assert(ListModifiers.decode(List()) == List())
   }
 }

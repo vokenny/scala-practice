@@ -95,4 +95,9 @@ class ListModifiersSpec extends FlatSpec {
     assert(ListModifiers.decode(encodedList) == symbolsList)
     assert(ListModifiers.decode(List()) == List())
   }
+
+  "List Modifier method encodeDirect" should "return list with run-length encoding data compression" in {
+    assert(ListModifiers.encodeDirect(symbolsList) == List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
+    assert(ListModifiers.encodeDirect(List()) == List())
+  }
 }

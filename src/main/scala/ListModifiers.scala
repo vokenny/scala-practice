@@ -199,4 +199,23 @@ object ListModifiers {
 
     decodeTailRec(list, Nil)
   }
+
+  //P13 - my solution is the same as my P10 solution because I already did it directly
+  def encodeDirect[A](list: List[A]): List[(Int, A)] = {
+    //if (list.isEmpty) Nil
+    //else {
+    //  val (packed, next) = list span { _ == list.head }
+    //  (packed.length, packed.head) :: encodeDirect(next)
+    //}
+
+    @tailrec
+    def encodeTailRec(l: List[A], result: List[(Int, A)]): List[(Int, A)] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail => encodeTailRec(tail.dropWhile(_ == h), (l.takeWhile(_ == h).size, h) :: result)
+      }
+    }
+
+    encodeTailRec(list, Nil)
+  }
 }

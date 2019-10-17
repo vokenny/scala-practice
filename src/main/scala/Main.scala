@@ -42,4 +42,7 @@ object Main extends App {
 
   println("\nP12 (**) Decode a run-length encoded list")
   println(ListModifiers.decode(encodedList))
+
+  println("\nP13 (**) Run-length encoding of a list (direct solution)")
+  println(ListModifiers.encodeDirect(symbolsList))
 }

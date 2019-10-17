@@ -152,4 +152,19 @@ object ListModifiers {
 
     packTailRec(list, Nil)
   }
+
+  //P10
+  def encode[A](list: List[A]): List[(Int, A)] = {
+    //pack(list).map { e => (e.size, e.head) }
+
+    @tailrec
+    def encodeTailRec(l: List[A], result: List[(Int, A)]): List[(Int, A)] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail => encodeTailRec(tail.dropWhile(_ == h), (l.takeWhile(_ == h).size, h) :: result)
+      }
+    }
+
+    encodeTailRec(list, Nil)
+  }
 }

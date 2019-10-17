@@ -14,7 +14,7 @@ P06 | :heavy_check_mark:
 P07 | :heavy_check_mark:
 P08 | :heavy_check_mark:
 P09 | :heavy_check_mark:
-P10 |
+P10 | :heavy_check_mark:
 P11 |
 P12 |
 P13 |

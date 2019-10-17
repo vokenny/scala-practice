@@ -32,4 +32,7 @@ object Main extends App {
 
   println("\nP09 (**) Pack consecutive duplicates of list elements into sublists")
   println(ListModifiers.pack(symbolsList))
+
+  println("\nP10 (*) Run-length encoding of a list")
+  println(ListModifiers.encode(symbolsList))
 }

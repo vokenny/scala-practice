@@ -69,4 +69,14 @@ class ListModifiersSpec extends FlatSpec  {
   it should "return an empty list for a input of empty list" in {
     assert(ListModifiers.compress(List()) == List())
   }
+
+  "List Modifier method pack" should "return list with duplicate consecutive values in sublists" in {
+    assert(ListModifiers.pack(symbolsList) == List(
+      List('a, 'a, 'a, 'a),
+      List('b),
+      List('c, 'c),
+      List('a, 'a),
+      List('d),
+      List('e, 'e, 'e, 'e)))
+  }
 }

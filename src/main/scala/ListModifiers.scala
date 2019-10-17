@@ -132,4 +132,24 @@ object ListModifiers {
 
     compressTailRec(list, Nil)
   }
+
+  //P09
+  def pack[A](list: List[A]): List[List[A]] = {
+    //if (list.isEmpty) List(List())
+    //else {
+    //  val (packed, next) = list span { _ == list.head }
+    //  if (next == Nil) List(packed)
+    //  else packed :: pack(next)
+    //}
+
+    @tailrec
+    def packTailRec(l: List[A], result: List[List[A]]): List[List[A]] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail => packTailRec(tail.dropWhile(_ == h), l.takeWhile(_ == h) :: result)
+      }
+    }
+
+    packTailRec(list, Nil)
+  }
 }

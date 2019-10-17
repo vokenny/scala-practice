@@ -29,4 +29,7 @@ object Main extends App {
 
   println("\nP08 (**) Eliminate consecutive duplicates of list elements")
   println(ListModifiers.compress(symbolsList))
+
+  println("\nP09 (**) Pack consecutive duplicates of list elements into sublists")
+  println(ListModifiers.pack(symbolsList))
 }

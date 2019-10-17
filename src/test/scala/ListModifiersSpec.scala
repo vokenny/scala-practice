@@ -7,6 +7,7 @@ class ListModifiersSpec extends FlatSpec {
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
   val encodedList = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+  val abridgeAlphabetList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
 
   "List Modifier method last" should "return the last element in a given list" in {
     assert(ListModifiers.last(fibonacciList) == 8)
@@ -72,13 +73,7 @@ class ListModifiersSpec extends FlatSpec {
   }
 
   "List Modifier method pack" should "return list with duplicate consecutive values in sublists" in {
-    assert(ListModifiers.pack(symbolsList) == List(
-      List('a, 'a, 'a, 'a),
-      List('b),
-      List('c, 'c),
-      List('a, 'a),
-      List('d),
-      List('e, 'e, 'e, 'e)))
+    assert(ListModifiers.pack(symbolsList) == List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
   }
 
   "List Modifier method encode" should "return list with run-length encoding data compression" in {
@@ -99,5 +94,10 @@ class ListModifiersSpec extends FlatSpec {
   "List Modifier method encodeDirect" should "return list with run-length encoding data compression" in {
     assert(ListModifiers.encodeDirect(symbolsList) == List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
     assert(ListModifiers.encodeDirect(List()) == List())
+  }
+
+  "List Modifier method duplicate" should "return list with run-length encoding data compression" in {
+    assert(ListModifiers.duplicate(abridgeAlphabetList) == List('a, 'a, 'b, 'b, 'c, 'c, 'd, 'd, 'e, 'e, 'f, 'f, 'g, 'g, 'h, 'h, 'i, 'i, 'j, 'j, 'k, 'k))
+    assert(ListModifiers.duplicate(List()) == List())
   }
 }

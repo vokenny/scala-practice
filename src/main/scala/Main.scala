@@ -5,6 +5,7 @@ object Main extends App {
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
   val encodedList = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
+  val abridgeAlphabetList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
 
   println("\nP01 (*) Find the last element of a list")
   println(ListModifiers.last(fibonacciList))
@@ -45,4 +46,7 @@ object Main extends App {
 
   println("\nP13 (**) Run-length encoding of a list (direct solution)")
   println(ListModifiers.encodeDirect(symbolsList))
+
+  println("\nP14 (*) Duplicate the elements of a list")
+  println(ListModifiers.duplicate(abridgeAlphabetList))
 }

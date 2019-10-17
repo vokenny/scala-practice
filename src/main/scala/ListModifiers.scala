@@ -218,4 +218,11 @@ object ListModifiers {
 
     encodeTailRec(list, Nil)
   }
+
+  //P14
+  def duplicate[A](list: List[A]): List[A] = {
+    //list flatMap { e => List(e, e) }
+
+    list.flatMap { l => List.fill(2)(l) }
+  }
 }

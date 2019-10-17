@@ -167,4 +167,21 @@ object ListModifiers {
 
     encodeTailRec(list, Nil)
   }
+
+  //P11
+  def encodeModified[A](list: List[A]): List[Any] = {
+    //encode(list).map { e => if (e._1 == 1) e._2 else e }
+
+    @tailrec
+    def encodeModTailRec(l: List[A], result: List[Any]): List[Any] = {
+      l match {
+        case Nil => result.reverse
+        case h :: tail =>
+          if (h != tail.head) encodeModTailRec(tail.dropWhile(_ == h), h :: result)
+          else encodeModTailRec(tail.dropWhile(_ == h), (l.takeWhile(_ == h).size, h) :: result)
+      }
+    }
+
+    encodeModTailRec(list, Nil)
+  }
 }

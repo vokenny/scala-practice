@@ -35,4 +35,7 @@ object Main extends App {
 
   println("\nP10 (*) Run-length encoding of a list")
   println(ListModifiers.encode(symbolsList))
+
+  println("\nP11 (*) Modified run-length encoding")
+  println(ListModifiers.encodeModified(symbolsList))
 }

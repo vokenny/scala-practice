@@ -248,6 +248,26 @@ object ListModifiers {
     //dropTailRec(num, list, Nil)
   }
 
+  //P17
+  def split[A](num: Int, list: List[A]): (List[A], List[A]) = {
+    //list.splitAt(num)
+
+    if (list.isEmpty) throw new IllegalArgumentException
+    else (list.take(num), list.drop(num))
+
+    //@tailrec
+    //def splitTailRec(count: Int, remList: List[A], result: List[A]): (List[A], List[A]) = {
+    //  (count, remList) match {
+    //    case (c, _) if c < 0 => throw new IllegalArgumentException
+    //    case (_, Nil) => (result.reverse, Nil)
+    //    case (0, _) => (result.reverse, remList)
+    //    case (_, h :: tail) => splitTailRec(count - 1, tail, h :: result)
+    //  }
+    //}
+
+    //splitTailRec(num, list, Nil)
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

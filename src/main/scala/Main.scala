@@ -56,6 +56,9 @@ object Main extends App {
   println("\nP16 (**) Drop every Nth element from a list")
   println(ListModifiers.drop(3, abridgedAlphabetList))
 
+  println("\nP17 (*) Split a list into two parts")
+  println(ListModifiers.split(3, abridgedAlphabetList))
+
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))
 }

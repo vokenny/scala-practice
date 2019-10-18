@@ -96,8 +96,18 @@ class ListModifiersSpec extends FlatSpec {
     assert(ListModifiers.encodeDirect(List()) == List())
   }
 
-  "List Modifier method duplicate" should "return list with run-length encoding data compression" in {
+  "List Modifier method duplicate" should "return list with duplicates" in {
     assert(ListModifiers.duplicate(abridgeAlphabetList) == List('a, 'a, 'b, 'b, 'c, 'c, 'd, 'd, 'e, 'e, 'f, 'f, 'g, 'g, 'h, 'h, 'i, 'i, 'j, 'j, 'k, 'k))
     assert(ListModifiers.duplicate(List()) == List())
+  }
+
+  "List Modifier method duplicateN" should "return list with N duplicates" in {
+    assert(ListModifiers.duplicateN(3, abridgeAlphabetList) == List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'd, 'd, 'd, 'e, 'e, 'e, 'f, 'f, 'f, 'g, 'g, 'g, 'h, 'h, 'h, 'i, 'i, 'i, 'j, 'j, 'j, 'k, 'k, 'k))
+    assert(ListModifiers.duplicateN(2, List()) == List())
+  }
+
+  "List Modifier method lotto" should "return list of given number of Ints" in {
+    assert(ListModifiers.lotto(9, 20).size == 9)
+    assert(ListModifiers.lotto(5, 30).map(e => e.isInstanceOf[Int]) == List.fill(5)(true))
   }
 }

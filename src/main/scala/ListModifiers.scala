@@ -1,4 +1,5 @@
 import scala.annotation.tailrec
+import scala.util.Random
 
 object ListModifiers {
 
@@ -223,6 +224,24 @@ object ListModifiers {
   def duplicate[A](list: List[A]): List[A] = {
     //list flatMap { e => List(e, e) }
 
-    list.flatMap { l => List.fill(2)(l) }
+    list.flatMap { e => List.fill(2)(e) }
   }
+
+  //P15
+  def duplicateN[A](num: Int, list: List[A]): List[A] = {
+    list.flatMap { e => List.fill(num)(e) }
+  }
+
+  //P24
+  def lotto(num: Int, max: Int): List[Int] = {
+    List.fill(num)(Random.nextInt(max + 1))
+
+    //@tailrec
+    //def lottoTailRec(count: Int, result: List[Int]): List[Int] = {
+    //  if (count <= 0) result else lottoTailRec(count - 1, Random.nextInt(max + 1) :: result)
+    //}
+
+    //lottoTailRec(num, Nil)
+  }
+
 }

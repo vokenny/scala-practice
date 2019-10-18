@@ -232,6 +232,22 @@ object ListModifiers {
     list.flatMap { e => List.fill(num)(e) }
   }
 
+  //P16
+  def drop[A](num: Int, list: List[A]): List[A] = {
+    list.zipWithIndex.filter(e => {(e._2 + 1) % num != 0}).map(_._1)
+
+    //@tailrec
+    //def dropTailRec(c: Int, curList: List[A], result: List[A]): List[A] = {
+    //  (c, curList) match {
+    //    case (_, Nil) => result.reverse
+    //    case (1, _ :: tail) => dropTailRec(num, tail, result)
+    //    case (_, h :: tail) => dropTailRec(c - 1, tail, h :: result)
+    //  }
+    //}
+
+    //dropTailRec(num, list, Nil)
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

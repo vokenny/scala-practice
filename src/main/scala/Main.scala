@@ -5,7 +5,7 @@ object Main extends App {
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
   val symbolsList: List[Symbol] = List(Symbol("a"), Symbol("a"), Symbol("a"), Symbol("a"),  Symbol("b"), Symbol("c"), Symbol("c"), Symbol("a"), Symbol("a"), Symbol("d"), Symbol("e"), Symbol("e"), Symbol("e"), Symbol("e"))
   val encodedList = List((4, Symbol("a")), (1, Symbol("b")), (2, Symbol("c")), (2, Symbol("a")), (1, Symbol("d")), (4, Symbol("e")))
-  val abridgeAlphabetList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k"))
+  val abridgedAlphabetList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k"))
 
   println("\nP01 (*) Find the last element of a list")
   println(ListModifiers.last(fibonacciList))
@@ -48,10 +48,13 @@ object Main extends App {
   println(ListModifiers.encodeDirect(symbolsList))
 
   println("\nP14 (*) Duplicate the elements of a list")
-  println(ListModifiers.duplicate(abridgeAlphabetList))
+  println(ListModifiers.duplicate(abridgedAlphabetList))
 
   println("\nP15 (**) Duplicate the elements of a list a given number of times")
-  println(ListModifiers.duplicateN(3, abridgeAlphabetList))
+  println(ListModifiers.duplicateN(3, abridgedAlphabetList))
+
+  println("\nP16 (**) Drop every Nth element from a list")
+  println(ListModifiers.drop(3, abridgedAlphabetList))
 
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))

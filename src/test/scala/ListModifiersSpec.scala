@@ -5,9 +5,9 @@ class ListModifiersSpec extends FlatSpec {
   val fibonacciList: List[Int] = 1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
   val unflatList: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
-  val symbolsList: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-  val encodedList = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
-  val abridgeAlphabetList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+  val symbolsList: List[Symbol] = List(Symbol("a"), Symbol("a"), Symbol("a"), Symbol("a"), Symbol("b"), Symbol("c"), Symbol("c"), Symbol("a"), Symbol("a"), Symbol("d"), Symbol("e"), Symbol("e"), Symbol("e"), Symbol("e"))
+  val encodedList = List((4, Symbol("a")), (1, Symbol("b")), (2, Symbol("c")), (2, Symbol("a")), (1, Symbol("d")), (4, Symbol("e")))
+  val abridgedAlphabetList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k"))
 
   "List Modifier method last" should "return the last element in a given list" in {
     assert(ListModifiers.last(fibonacciList) == 8)
@@ -65,7 +65,7 @@ class ListModifiersSpec extends FlatSpec {
   }
 
   "List Modifier method compress" should "return list with duplicates removed" in {
-    assert(ListModifiers.compress(symbolsList) == List('a, 'b, 'c, 'a, 'd, 'e))
+    assert(ListModifiers.compress(symbolsList) == List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("a"), Symbol("d"), Symbol("e")))
   }
 
   it should "return an empty list for a input of empty list" in {
@@ -73,16 +73,16 @@ class ListModifiersSpec extends FlatSpec {
   }
 
   "List Modifier method pack" should "return list with duplicate consecutive values in sublists" in {
-    assert(ListModifiers.pack(symbolsList) == List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
+    assert(ListModifiers.pack(symbolsList) == List(List(Symbol("a"), Symbol("a"), Symbol("a"), Symbol("a")), List(Symbol("b")), List(Symbol("c"), Symbol("c")), List(Symbol("a"), Symbol("a")), List(Symbol("d")), List(Symbol("e"), Symbol("e"), Symbol("e"), Symbol("e"))))
   }
 
   "List Modifier method encode" should "return list with run-length encoding data compression" in {
-    assert(ListModifiers.encode(symbolsList) == List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
+    assert(ListModifiers.encode(symbolsList) == List((4, Symbol("a")), (1, Symbol("b")), (2, Symbol("c")), (2, Symbol("a")), (1, Symbol("d")), (4, Symbol("e"))))
     assert(ListModifiers.encode(List()) == List())
   }
 
   "List Modifier method encodeModified" should "return list with run-length encoding data compression" in {
-    assert(ListModifiers.encodeModified(symbolsList) == List((4, 'a), 'b, (2, 'c), (2, 'a), 'd, (4, 'e)))
+    assert(ListModifiers.encodeModified(symbolsList) == List((4, Symbol("a")), Symbol("b"), (2, Symbol("c")), (2, Symbol("a")), Symbol("d"), (4, Symbol("e"))))
     assert(ListModifiers.encodeModified(List()) == List())
   }
 
@@ -92,18 +92,23 @@ class ListModifiersSpec extends FlatSpec {
   }
 
   "List Modifier method encodeDirect" should "return list with run-length encoding data compression" in {
-    assert(ListModifiers.encodeDirect(symbolsList) == List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
+    assert(ListModifiers.encodeDirect(symbolsList) == List((4, Symbol("a")), (1, Symbol("b")), (2, Symbol("c")), (2, Symbol("a")), (1, Symbol("d")), (4, Symbol("e"))))
     assert(ListModifiers.encodeDirect(List()) == List())
   }
 
   "List Modifier method duplicate" should "return list with duplicates" in {
-    assert(ListModifiers.duplicate(abridgeAlphabetList) == List('a, 'a, 'b, 'b, 'c, 'c, 'd, 'd, 'e, 'e, 'f, 'f, 'g, 'g, 'h, 'h, 'i, 'i, 'j, 'j, 'k, 'k))
+    assert(ListModifiers.duplicate(abridgedAlphabetList) == List(Symbol("a"), Symbol("a"), Symbol("b"), Symbol("b"), Symbol("c"), Symbol("c"), Symbol("d"), Symbol("d"), Symbol("e"), Symbol("e"), Symbol("f"), Symbol("f"), Symbol("g"), Symbol("g"), Symbol("h"), Symbol("h"), Symbol("i"), Symbol("i"), Symbol("j"), Symbol("j"), Symbol("k"), Symbol("k")))
     assert(ListModifiers.duplicate(List()) == List())
   }
 
   "List Modifier method duplicateN" should "return list with N duplicates" in {
-    assert(ListModifiers.duplicateN(3, abridgeAlphabetList) == List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'd, 'd, 'd, 'e, 'e, 'e, 'f, 'f, 'f, 'g, 'g, 'g, 'h, 'h, 'h, 'i, 'i, 'i, 'j, 'j, 'j, 'k, 'k, 'k))
+    assert(ListModifiers.duplicateN(3, abridgedAlphabetList) == List(Symbol("a"), Symbol("a"), Symbol("a"), Symbol("b"), Symbol("b"), Symbol("b"), Symbol("c"), Symbol("c"), Symbol("c"), Symbol("d"), Symbol("d"), Symbol("d"), Symbol("e"), Symbol("e"), Symbol("e"), Symbol("f"), Symbol("f"), Symbol("f"), Symbol("g"), Symbol("g"), Symbol("g"), Symbol("h"), Symbol("h"), Symbol("h"), Symbol("i"), Symbol("i"), Symbol("i"), Symbol("j"), Symbol("j"), Symbol("j"), Symbol("k"), Symbol("k"), Symbol("k")))
     assert(ListModifiers.duplicateN(2, List()) == List())
+  }
+
+  "List Modifier method drop" should "return list with Nth elements removed" in {
+    assert(ListModifiers.drop(3, abridgedAlphabetList) == List(Symbol("a"), Symbol("b"), Symbol("d"), Symbol("e"), Symbol("g"), Symbol("h"), Symbol("j"), Symbol("k")))
+    assert(ListModifiers.drop(2, abridgedAlphabetList) == List(Symbol("a"), Symbol("c"), Symbol("e"), Symbol("g"), Symbol("i"), Symbol("k")))
   }
 
   "List Modifier method lotto" should "return list of given number of Ints" in {

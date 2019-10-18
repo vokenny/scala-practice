@@ -275,6 +275,26 @@ object ListModifiers {
     list.drop(indStart).take(indEnd - indStart)
   }
 
+  //P19
+  def rotate[A](num: Int, list: List[A]): List[A] = {
+    num.sign match {
+      case 1 => list.drop(num) ::: list.take(num)
+      case 0 => list
+      case -1 => list.takeRight(num.abs) ::: list.dropRight(num.abs)
+    }
+
+//    @tailrec
+//    def rotate(c: Int, result: List[A]): List[A] = {//
+//      c. sign match {
+//        case 1 => rotate(c - 1, result.tail ::: result.head :: Nil)
+//        case 0 => result
+//        case -1 => rotate(c + 1, result.last :: result.init)
+//      }
+//    }
+//
+//    rotate(num, list)
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

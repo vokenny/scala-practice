@@ -62,6 +62,10 @@ object Main extends App {
   println("\nP18 (**) Extract a slice from a list")
   println(ListModifiers.slice(3, 7, abridgedAlphabetList))
 
+  println("\nP19 (**) Rotate a list N places to the left")
+  println(ListModifiers.rotate(3, abridgedAlphabetList))
+  println(ListModifiers.rotate(-2, abridgedAlphabetList))
+
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))
 }

@@ -111,9 +111,14 @@ class ListModifiersSpec extends FlatSpec {
     assert(ListModifiers.drop(2, abridgedAlphabetList) == List(Symbol("a"), Symbol("c"), Symbol("e"), Symbol("g"), Symbol("i"), Symbol("k")))
   }
 
-  "List Modifier method split" should "return list with tuple of two lists separated by given length of first list" in {
+  "List Modifier method split" should "return tuple of two lists separated by given length of first list" in {
     assert(ListModifiers.split(3, abridgedAlphabetList) == (List(Symbol("a"), Symbol("b"), Symbol("c")), List(Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k"))))
     assert(ListModifiers.split(2, abridgedAlphabetList) == (List(Symbol("a"), Symbol("b")), List(Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k"))))
+  }
+
+  "List Modifier method slice" should "return list of elements indicated by index start (inclusive) and end (exclusive)" in {
+    assert(ListModifiers.slice(3, 6,  abridgedAlphabetList) == List(Symbol("d"), Symbol("e"), Symbol("f")))
+    assert(ListModifiers.slice(6, 8, abridgedAlphabetList) == List(Symbol("g"), Symbol("h")))
   }
 
   "List Modifier method lotto" should "return list of given number of Ints" in {

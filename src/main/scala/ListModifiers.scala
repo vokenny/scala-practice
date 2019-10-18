@@ -234,7 +234,7 @@ object ListModifiers {
 
   //P16
   def drop[A](num: Int, list: List[A]): List[A] = {
-    list.zipWithIndex.filter(e => {(e._2 + 1) % num != 0}).map(_._1)
+    list.zipWithIndex.filter(e => (e._2 + 1) % num != 0).map(_._1)
 
     //@tailrec
     //def dropTailRec(c: Int, curList: List[A], result: List[A]): List[A] = {
@@ -266,6 +266,13 @@ object ListModifiers {
     //}
 
     //splitTailRec(num, list, Nil)
+  }
+
+  //P18
+  def slice[A](indStart: Int, indEnd: Int, list: List[A]): List[A] = {
+    //list.slice(indStart, indEnd)
+
+    list.drop(indStart).take(indEnd - indStart)
   }
 
   //P24

@@ -66,6 +66,9 @@ object Main extends App {
   println(ListModifiers.rotate(3, abridgedAlphabetList))
   println(ListModifiers.rotate(-2, abridgedAlphabetList))
 
+  println("\nP20 (*) Remove the Kth element from a list")
+  println(ListModifiers.removeAt(1, abridgedAlphabetList))
+
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))
 }

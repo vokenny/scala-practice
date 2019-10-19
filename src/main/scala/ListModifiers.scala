@@ -283,16 +283,28 @@ object ListModifiers {
       case -1 => list.takeRight(num.abs) ::: list.dropRight(num.abs)
     }
 
-//    @tailrec
-//    def rotate(c: Int, result: List[A]): List[A] = {//
-//      c. sign match {
-//        case 1 => rotate(c - 1, result.tail ::: result.head :: Nil)
-//        case 0 => result
-//        case -1 => rotate(c + 1, result.last :: result.init)
-//      }
-//    }
-//
-//    rotate(num, list)
+    //@tailrec
+    //def rotate(c: Int, result: List[A]): List[A] = {
+    //  //
+    //  c.sign match {
+    //    case 1 => rotate(c - 1, result.tail ::: result.head :: Nil)
+    //    case 0 => result
+    //    case -1 => rotate(c + 1, result.last :: result.init)
+    //  }
+    //}
+
+    //rotate(num, list)
+  }
+
+  //P20
+  def removeAt[A](index: Int, list: List[A]): (List[A], A) = {
+    (list.zipWithIndex.filter(e => e._2 != index).map(e => e._1), list(index))
+
+    //list.splitAt(index) match {
+    //  case (Nil, _) => throw new NoSuchElementException
+    //  case (pre, Nil) => throw new NoSuchElementException
+    //  case (pre, e :: post) => (pre ::: post, e)
+    //}
   }
 
   //P24
@@ -306,5 +318,4 @@ object ListModifiers {
 
     //lottoTailRec(num, Nil)
   }
-
 }

@@ -126,6 +126,11 @@ class ListModifiersSpec extends FlatSpec {
     assert(ListModifiers.rotate(-2, abridgedAlphabetList) == List(Symbol("j"), Symbol("k"), Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i")))
   }
 
+  "P19 List Modifier method removeAt" should "return tuple of list of saved elements, and the removed element" in {
+    assert(ListModifiers.removeAt(1, abridgedAlphabetList) == (List(Symbol("a"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k")), Symbol("b")))
+    assert(ListModifiers.removeAt(5, abridgedAlphabetList) == (List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k")), Symbol("f")))
+  }
+
   "List Modifier method lotto" should "return list of given number of Ints" in {
     assert(ListModifiers.lotto(9, 20).size == 9)
     assert(ListModifiers.lotto(5, 30).map(e => e.isInstanceOf[Int]) == List.fill(5)(true))

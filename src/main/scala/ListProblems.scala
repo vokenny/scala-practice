@@ -1,4 +1,4 @@
-object Main extends App {
+object ListProblems extends App {
 
   val fibonacciList: List[Int] = 1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)
@@ -68,6 +68,9 @@ object Main extends App {
 
   println("\nP20 (*) Remove the Kth element from a list")
   println(ListModifiers.removeAt(1, abridgedAlphabetList))
+
+  println("\nP21 (*) Insert an element at a given position into a list")
+  println(ListModifiers.insertAt(13, 6, fibonacciList))
 
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))

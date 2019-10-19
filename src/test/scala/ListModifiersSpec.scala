@@ -137,6 +137,20 @@ class ListModifiersSpec extends FlatSpec {
     }
   }
 
+  "P21 List Modifier method insertAt" should "return list of elements with new element inside" in {
+    assert(ListModifiers.insertAt(13, 6, fibonacciList) == List(1, 1, 2, 3, 5, 8, 13))
+  }
+
+  it should "return IllegalArgumentException for invalid index" in {
+    assertThrows[IllegalArgumentException] {
+      ListModifiers.insertAt(13, 7, fibonacciList)
+    }
+
+    assertThrows[IllegalArgumentException] {
+      ListModifiers.insertAt(13, -1, fibonacciList)
+    }
+  }
+
   "List Modifier method lotto" should "return list of given number of Ints" in {
     assert(ListModifiers.lotto(9, 20).size == 9)
     assert(ListModifiers.lotto(5, 30).map(e => e.isInstanceOf[Int]) == List.fill(5)(true))

@@ -310,6 +310,17 @@ object ListModifiers {
     //}
   }
 
+  //P21
+  def insertAt[A](elem: A, index: Int, list: List[A]): List[A] = {
+    if (index >= 0 && index <= list.size) {
+      list.splitAt(index) match {
+        case (Nil, _) => elem :: Nil
+        case (pre, Nil) => pre ::: elem :: Nil
+        case (pre, post) => pre ::: elem :: post
+      }
+    } else throw new IllegalArgumentException
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

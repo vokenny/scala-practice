@@ -312,6 +312,10 @@ object ListModifiers {
 
   //P21
   def insertAt[A](elem: A, index: Int, list: List[A]): List[A] = {
+    //list.splitAt(index) match {
+    //  case (pre, post) => pre ::: elem :: post
+    //}
+
     if (index >= 0 && index <= list.size) {
       list.splitAt(index) match {
         case (Nil, _) => elem :: Nil

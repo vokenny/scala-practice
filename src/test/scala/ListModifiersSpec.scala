@@ -117,7 +117,7 @@ class ListModifiersSpec extends FlatSpec {
   }
 
   "P18 List Modifier method slice" should "return list of elements indicated by index start (inclusive) and end (exclusive)" in {
-    assert(ListModifiers.slice(3, 6,  abridgedAlphabetList) == List(Symbol("d"), Symbol("e"), Symbol("f")))
+    assert(ListModifiers.slice(3, 6, abridgedAlphabetList) == List(Symbol("d"), Symbol("e"), Symbol("f")))
     assert(ListModifiers.slice(6, 8, abridgedAlphabetList) == List(Symbol("g"), Symbol("h")))
   }
 
@@ -126,9 +126,15 @@ class ListModifiersSpec extends FlatSpec {
     assert(ListModifiers.rotate(-2, abridgedAlphabetList) == List(Symbol("j"), Symbol("k"), Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i")))
   }
 
-  "P19 List Modifier method removeAt" should "return tuple of list of saved elements, and the removed element" in {
+  "P20 List Modifier method removeAt" should "return tuple of list of saved elements, and the removed element" in {
     assert(ListModifiers.removeAt(1, abridgedAlphabetList) == (List(Symbol("a"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("f"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k")), Symbol("b")))
     assert(ListModifiers.removeAt(5, abridgedAlphabetList) == (List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e"), Symbol("g"), Symbol("h"), Symbol("i"), Symbol("j"), Symbol("k")), Symbol("f")))
+  }
+
+  it should "return NoSuchElementException for invalid k" in {
+    assertThrows[NoSuchElementException] {
+      ListModifiers.removeAt(6, fibonacciList)
+    }
   }
 
   "List Modifier method lotto" should "return list of given number of Ints" in {

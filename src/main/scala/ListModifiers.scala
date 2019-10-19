@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException
+
 import scala.annotation.tailrec
 import scala.util.Random
 
@@ -297,8 +299,9 @@ object ListModifiers {
   }
 
   //P20
-  def removeAt[A](index: Int, list: List[A]): (List[A], A) = {
-    (list.zipWithIndex.filter(e => e._2 != index).map(e => e._1), list(index))
+  def removeAt[A](k: Int, list: List[A]): (List[A], A) = {
+    if (k < 0 || k >= list.size) throw new NoSuchElementException
+    else (list.zipWithIndex.filter(e => e._2 != k).map(e => e._1), list(k))
 
     //list.splitAt(index) match {
     //  case (Nil, _) => throw new NoSuchElementException

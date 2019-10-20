@@ -76,6 +76,9 @@ object ListProblems extends App {
   println(ListModifiers.range(4, 9))
   println(ListModifiers.range(2, -3))
 
+  println("\nP23 (**) Extract a given number of randomly selected elements from a list")
+  println(ListModifiers.randomSelect(10, abridgedAlphabetList))
+
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))
 }

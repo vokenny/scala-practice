@@ -343,6 +343,20 @@ object ListModifiers {
     rangeTailRec(end - start, start, Nil)
   }
 
+  //P23
+  def randomSelect[A](num: Int, list: List[A]): List[A] = {
+    @tailrec
+    def randomSelectTailRec(count: Int, l: List[A], result: List[A]): List[A] = {
+      (count, l.splitAt(Random.nextInt(l.size))) match {
+        case (0, _) => result
+        case (c, (pre, e :: post)) => randomSelectTailRec(c - 1, pre ::: post, e :: result)
+        case _ => throw new NoSuchElementException
+      }
+    }
+
+    if (num > 0 && num <= list.size) randomSelectTailRec(num, list, Nil) else throw new IllegalArgumentException
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

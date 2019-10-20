@@ -151,6 +151,10 @@ class ListModifiersSpec extends FlatSpec {
     }
   }
 
+  "P22 List Modifier method range" should "return list of Int between the given range (inclusive)" in {
+    assert(ListModifiers.range(10, 6) == List(10, 9, 8, 7, 6))
+  }
+
   "List Modifier method lotto" should "return list of given number of Ints" in {
     assert(ListModifiers.lotto(9, 20).size == 9)
     assert(ListModifiers.lotto(5, 30).map(e => e.isInstanceOf[Int]) == List.fill(5)(true))

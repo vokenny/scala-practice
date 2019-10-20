@@ -325,6 +325,24 @@ object ListModifiers {
     } else throw new IllegalArgumentException
   }
 
+  //P22 - my solution is better as it can return ranges going backwards
+  def range(start: Int, end: Int): List[Int] = {
+    //List.range(start, end + 1)
+
+    @tailrec
+    def rangeTailRec(c: Int, e: Int, result: List[Int]): List[Int] = {
+      val sign = c.sign
+
+      sign match {
+        case 1 => rangeTailRec(c - 1, e + 1, e :: result)
+        case 0 => (end :: result).reverse
+        case -1 => rangeTailRec(c + 1, e - 1, e :: result)
+      }
+    }
+
+    rangeTailRec(end - start, start, Nil)
+  }
+
   //P24
   def lotto(num: Int, max: Int): List[Int] = {
     List.fill(num)(Random.nextInt(max + 1))

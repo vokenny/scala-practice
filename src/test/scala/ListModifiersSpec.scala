@@ -169,8 +169,22 @@ class ListModifiersSpec extends FlatSpec {
     }
   }
 
-    "List Modifier method lotto" should "return list of given number of Ints" in {
+  "P24 List Modifier method lotto" should "return list of given number of Ints" in {
     assert(ListModifiers.lotto(9, 20).size == 9)
     assert(ListModifiers.lotto(5, 30).map(e => e.isInstanceOf[Int]) == List.fill(5)(true))
+  }
+
+  "P25 List Modifier method randomPermute" should "return list of given size of randomly selected elems" in {
+    assert(ListModifiers.randomPermute(abridgedAlphabetList).size == abridgedAlphabetList.size)
+  }
+
+  it should "return IllegalArgumentException for invalid index" in {
+    assertThrows[IllegalArgumentException] {
+      ListModifiers.randomPermute(Nil)
+    }
+
+    assertThrows[IllegalArgumentException] {
+      ListModifiers.randomPermute(List())
+    }
   }
 }

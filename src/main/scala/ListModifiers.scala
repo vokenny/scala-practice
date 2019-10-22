@@ -368,4 +368,13 @@ object ListModifiers {
 
     //lottoTailRec(num, Nil)
   }
+
+  //P25
+  def randomPermute[A](list: List[A]): List[Any] = {
+    val randomlySelectedList: List[(Any, Int)] = randomSelect(2, list.zipWithIndex)
+
+    list
+      .updated(randomlySelectedList(0)._2, randomlySelectedList(1)._1)
+      .updated(randomlySelectedList(1)._2, randomlySelectedList(0)._1)
+  }
 }

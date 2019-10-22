@@ -81,4 +81,7 @@ object ListProblems extends App {
 
   println("\nP24 (*) Lotto: Draw N different random numbers from the set 1..M")
   println(ListModifiers.lotto(6, 49))
+
+  println("\nP25 (*) Generate a random permutation of the elements of a list")
+  println(ListModifiers.randomPermute(abridgedAlphabetList))
 }

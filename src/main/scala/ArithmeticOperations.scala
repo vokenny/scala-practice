@@ -48,4 +48,7 @@ object ArithmeticOperations {
       case (a, b) => gcdTailRec(a, b)
     }
   }
+
+  //P33
+  def isCoprime(x1: Int, x2: Int): Boolean = ???
 }

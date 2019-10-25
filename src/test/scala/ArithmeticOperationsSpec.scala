@@ -1,3 +1,4 @@
+import Arithmetic.ArithmeticOperations
 import org.scalatest.{FlatSpec, Matchers}
 
 class ArithmeticOperationsSpec extends FlatSpec with Matchers {

@@ -1,3 +1,5 @@
+package Arithmetic
+
 object ArithmeticProblems extends App {
 
   println("\nP31 (**) Determine whether a given integer number is prime")

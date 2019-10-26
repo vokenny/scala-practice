@@ -1,4 +1,4 @@
-import List.ListModifiers
+import Collections.ListModifiers
 import org.scalatest.FlatSpec
 
 class ListModifiersSpec extends FlatSpec {

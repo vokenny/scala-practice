@@ -1,4 +1,4 @@
-package List
+package Collections
 
 object ListProblems extends App {
 

@@ -31,4 +31,12 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
     ArithmeticOperations.gcd(67890, 0) should be (67890)
     ArithmeticOperations.gcd(0, 0) should be (0)
   }
+
+  "P33 Arithmetic Operations isCoprime" should "return true" in {
+    ArithmeticOperations.isCoprime(35, 64) should be (true)
+  }
+
+  it should "return false" in {
+    ArithmeticOperations.isCoprime(16, 32) should be (false)
+  }
 }

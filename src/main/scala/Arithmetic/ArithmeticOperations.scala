@@ -53,4 +53,7 @@ object ArithmeticOperations {
 
   //P33
   def isCoprime(x1: Int, x2: Int): Boolean = if (gcd(x1, x2) == 1) true else false
+
+  //P34
+  def phi(m: Int): Int = ???
 }

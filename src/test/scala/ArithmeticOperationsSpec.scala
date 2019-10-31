@@ -52,4 +52,9 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
     315.primeFactors should be (List(3, 3, 5, 7))
     460.primeFactors should be (List(5, 23))
   }
+
+  "P36 Arithmetic Operations primeFactorMultiplicity" should "return map of prime factors with their multiplicity" in {
+    315.primeFactorsMultiplicity should be (Map(3 -> 2, 5 -> 1, 7 -> 1))
+    460.primeFactorsMultiplicity should be (Map(5 -> 1, 23 -> 1))
+  }
 }

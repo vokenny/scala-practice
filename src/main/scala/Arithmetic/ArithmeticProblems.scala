@@ -20,4 +20,7 @@ object ArithmeticProblems extends App {
 
   println("\nP35 (**) Determine the prime factors of a given positive integer")
   println(315.primeFactors)
+
+  println("\nP36 (**) Determine the prime factors of a given positive integer (2)")
+  println(315.primeFactorsMultiplicity)
 }

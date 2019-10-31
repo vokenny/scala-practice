@@ -71,6 +71,14 @@ class S99Int(val num: Int) {
     val primeFactors: List[Int] = getPrimeNumbers.filter(e => num % e == 0).sorted
     primeFactorsTailRec(num, primeFactors, Nil)
   }
+
+  //P36
+  def primeFactorsMultiplicity: Map[Int, Int] = {
+    // Count how many times the prime factor appears
+
+    // Map(primeFactors.map{e => (e, primeFactors.count(_ == e))} : _ *)
+    primeFactors.map(e => e -> primeFactors.count(_ == e)).toMap
+  }
 }
 
 object S99Int {

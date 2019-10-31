@@ -77,6 +77,7 @@ class S99Int(val num: Int) {
     // Count how many times the prime factor appears
 
     // Map(primeFactors.map{e => (e, primeFactors.count(_ == e))} : _ *)
+
     primeFactors.map(e => e -> primeFactors.count(_ == e)).toMap
   }
 }

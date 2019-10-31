@@ -49,6 +49,28 @@ class S99Int(val num: Int) {
 
     List.range(1, num + 1).fold(0) { (r, e) => if (isCoprimeTo(e)) r + 1 else r }
   }
+
+  //P35
+  def primeFactors: List[Int] = {
+    // Get list of prime factors for num, that are perfectly divisble (modulus == 0)
+    // Divide by max prime
+    // Add max prime to result
+    // Repeat until number reaches zero
+
+    @tailrec
+    def primeFactorsTailRec(recNum: Int, remPrimes: List[Int], result: List[Int]): List[Int] = {
+      (recNum, remPrimes) match {
+        case (1, _) => result
+        case (_, Nil) => result
+        case (_, _) =>
+          if (recNum % remPrimes.last == 0) primeFactorsTailRec(recNum / remPrimes.last, remPrimes, remPrimes.max :: result)
+          else primeFactorsTailRec(recNum, remPrimes.init, result)
+      }
+    }
+
+    val primeFactors: List[Int] = getPrimeNumbers.filter(e => num % e == 0).sorted
+    primeFactorsTailRec(num, primeFactors, Nil)
+  }
 }
 
 object S99Int {

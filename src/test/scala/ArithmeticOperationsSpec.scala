@@ -47,4 +47,9 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
     10.totient should be (4)
     15.totient should be (8)
   }
+
+  "P35 Arithmetic Operations primeFactors" should "return list of prime factors" in {
+    315.primeFactors should be (List(3, 3, 5, 7))
+    460.primeFactors should be (List(5, 23))
+  }
 }

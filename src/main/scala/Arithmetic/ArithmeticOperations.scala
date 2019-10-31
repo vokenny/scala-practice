@@ -4,6 +4,17 @@ import scala.annotation.tailrec
 
 class S99Int(val num: Int) {
 
+  def getPrimeNumbers: List[Int] = {
+    @tailrec
+    def removeNonPrimes(checkedPrimes: List[Int], remList: List[Int]): List[Int] = {
+      if (remList.head <= Math.sqrt(num)) removeNonPrimes(remList.head :: checkedPrimes, remList.filter(e => e % remList.head != 0))
+      else checkedPrimes.reverse ::: remList
+    }
+
+    val numsToCheck: List[Int] = List.range(3, num + 1, 2)
+    removeNonPrimes(Nil, numsToCheck)
+  }
+
   //P31
   def isPrime: Boolean = {
     // The Sieve of Eratosthenes
@@ -15,17 +26,10 @@ class S99Int(val num: Int) {
     // Repeat with 7 and then since the first number left, 11,
     // is larger than the square root of 100, all of the numbers left are primes.
 
-    @tailrec
-    def removeNonPrimes(checkedPrimes: List[Int], remList: List[Int]): List[Int] = {
-      if (remList.head <= Math.sqrt(num)) removeNonPrimes(remList.head :: checkedPrimes, remList.filter(e => e % remList.head != 0))
-      else checkedPrimes.reverse ::: remList
-    }
-
     num match {
       case 2 => true
       case i if i >= 3 =>
-        val numsToCheck: List[Int] = List.range(3, i + 1, 2)
-        if (removeNonPrimes(Nil, numsToCheck).contains(i)) true else false
+        if (getPrimeNumbers.contains(i)) true else false
       case _ => false
     }
   }
@@ -37,6 +41,14 @@ class S99Int(val num: Int) {
   }
 
   //P34
+  def totient: Int = {
+    // Euler's so-called totient function phi(m) is defined as the number of positive integers r
+    // (1 <= r <= m) that are coprime to m
+
+    // (1 to num).count(isCoprimeTo)
+
+    List.range(1, num + 1).fold(0) { (r, e) => if (isCoprimeTo(e)) r + 1 else r }
+  }
 }
 
 object S99Int {

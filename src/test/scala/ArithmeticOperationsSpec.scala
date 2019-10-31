@@ -41,4 +41,10 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
   it should "return false" in {
     16.isCoprimeTo(32) should be (false)
   }
+
+  "P34 Arithmetic Operations totient" should "return count of +ve integers that are coprime" in {
+    0.totient should be (0)
+    10.totient should be (4)
+    15.totient should be (8)
+  }
 }

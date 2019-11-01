@@ -29,4 +29,7 @@ object ArithmeticProblems extends App {
 
   println("\nP38 (*) Compare the two methods of calculating Euler's totient function")
   println(10090.test())
+
+  println("\nP39 (*) A list of prime numbers")
+  println(ArithmeticOperations.listPrimesInRange(7 to 31))
 }

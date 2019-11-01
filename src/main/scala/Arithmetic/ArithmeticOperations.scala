@@ -136,4 +136,18 @@ object ArithmeticOperations {
       case (a, b) => gcdTailRec(a, b)
     }
   }
+
+  //P39
+  def listPrimesInRange(range: Range): List[Int] = {
+    import S99Int._
+
+    val validRange = range.filter(e => e >= 2)
+
+    if (validRange.nonEmpty) {
+      validRange.head match {
+        case 2 => 2 :: (range.end + 1).getPrimeNumbers.filter(e => e >= range.start)
+        case _ => (range.end + 1).getPrimeNumbers.filter(e => e >= range.start)
+      }
+    } else List()
+  }
 }

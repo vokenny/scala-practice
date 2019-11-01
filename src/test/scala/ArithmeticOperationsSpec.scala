@@ -1,3 +1,4 @@
+import Arithmetic.ArithmeticOperations
 import Arithmetic.ArithmeticOperations._
 import org.scalatest.{FlatSpec, Matchers}
 import Arithmetic.S99Int._
@@ -60,5 +61,15 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
   "P37 Arithmetic Operations totientImproved" should "return count of +ve integers that are coprime" in {
     10.totientImproved should be (4)
     15.totientImproved should be (8)
+  }
+
+  "P39 Arithmetic Operations listPrimesInRange" should "return list of prime numbers in the given range" in {
+    ArithmeticOperations.listPrimesInRange(7 to 31) should be (List(7, 11, 13, 17, 19, 23, 29, 31))
+    ArithmeticOperations.listPrimesInRange(1 to 15) should be (List(2, 3, 5, 7, 11, 13))
+    ArithmeticOperations.listPrimesInRange(-20 to 15) should be (List(2, 3, 5, 7, 11, 13))
+  }
+
+  it should "return empty list for range below 2" in {
+    ArithmeticOperations.listPrimesInRange(-20 to 1) should be (List())
   }
 }

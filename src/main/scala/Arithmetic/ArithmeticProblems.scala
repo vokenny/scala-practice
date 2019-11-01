@@ -26,4 +26,7 @@ object ArithmeticProblems extends App {
 
   println("\nP37 (**) Calculate Euler's totient function phi(m) (improved)")
   println(10.totientImproved)
+
+  println("\nP38 (*) Compare the two methods of calculating Euler's totient function")
+  println(10090.test())
 }

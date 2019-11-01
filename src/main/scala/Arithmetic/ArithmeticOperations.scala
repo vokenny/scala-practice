@@ -86,7 +86,27 @@ class S99Int(val num: Int) {
   def totientImproved: Int = {
     // phi(m) = (p1-1)*p1^(m1-1) * (p2-1)*p2^(m2-1) * (p3-1)*p3^(m3-1) * ...
 
-    primeFactorsMultiplicity.foldLeft(1) { (r, e) => (e._1 - 1) * pow(e._1, e._2 - 1).toInt * r }
+    primeFactorsMultiplicity.foldLeft(1) { (r, e) => r * (e._1 - 1) * pow(e._1, e._2 - 1).toInt }
+  }
+
+  // P38
+  def time[A](label: String)(block: => A): A = {
+    val now = System.currentTimeMillis()
+    val ret = block
+    println(label + ": " + (System.currentTimeMillis() - now) + " ms.")
+    ret
+  }
+
+  def test(): Unit = {
+    time("Preload primes") {
+      getPrimeNumbers
+    }
+    time("P34 (" + num + ")") {
+      totient
+    }
+    time("P37 (" + num + ")") {
+      totientImproved
+    }
   }
 }
 

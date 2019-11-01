@@ -1,6 +1,7 @@
 package Arithmetic
 
 import scala.annotation.tailrec
+import math.pow
 
 class S99Int(val num: Int) {
 
@@ -79,6 +80,13 @@ class S99Int(val num: Int) {
     // Map(primeFactors.map{e => (e, primeFactors.count(_ == e))} : _ *)
 
     primeFactors.map(e => e -> primeFactors.count(_ == e)).toMap
+  }
+
+  //P37
+  def totientImproved: Int = {
+    // phi(m) = (p1-1)*p1^(m1-1) * (p2-1)*p2^(m2-1) * (p3-1)*p3^(m3-1) * ...
+
+    primeFactorsMultiplicity.foldLeft(1) { (r, e) => (e._1 - 1) * pow(e._1, e._2 - 1).toInt * r }
   }
 }
 

@@ -23,4 +23,7 @@ object ArithmeticProblems extends App {
 
   println("\nP36 (**) Determine the prime factors of a given positive integer (2)")
   println(315.primeFactorsMultiplicity)
+
+  println("\nP37 (**) Calculate Euler's totient function phi(m) (improved)")
+  println(10.totientImproved)
 }

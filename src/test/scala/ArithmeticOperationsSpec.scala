@@ -43,7 +43,6 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
   }
 
   "P34 Arithmetic Operations totient" should "return count of +ve integers that are coprime" in {
-    0.totient should be (0)
     10.totient should be (4)
     15.totient should be (8)
   }
@@ -56,5 +55,10 @@ class ArithmeticOperationsSpec extends FlatSpec with Matchers {
   "P36 Arithmetic Operations primeFactorMultiplicity" should "return map of prime factors with their multiplicity" in {
     315.primeFactorsMultiplicity should be (Map(3 -> 2, 5 -> 1, 7 -> 1))
     460.primeFactorsMultiplicity should be (Map(5 -> 1, 23 -> 1))
+  }
+
+  "P37 Arithmetic Operations totientImproved" should "return count of +ve integers that are coprime" in {
+    10.totientImproved should be (4)
+    15.totientImproved should be (8)
   }
 }

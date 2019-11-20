@@ -11,10 +11,18 @@ object SecretSantaImproved extends App {
     println("How many people are playing Secret Santa?")
     val numOfPpl: Int = readInt()
 
-    List.fill(numOfPpl)(getNames)
+    if (numOfPpl > 0) List.fill(numOfPpl)(getNames) else throw new IllegalArgumentException
   }
 
-  def getNames: String = readLine("Add a name to the Secret Santa list\n")
+  @tailrec
+  def getNames: String = {
+    val name = readLine("Add a name to the Secret Santa list\n")
+
+    if (name.isEmpty) {
+      println("Please enter a name")
+      getNames
+    } else name
+  }
 
   def randomSelect(list: List[String]): String = list(Random.nextInt(list.size))
 

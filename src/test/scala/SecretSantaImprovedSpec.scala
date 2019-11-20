@@ -17,6 +17,13 @@ class SecretSantaImprovedSpec extends FlatSpec with Matchers {
     }
   }
 
+  it should "throw EOFException for no input" in {
+    val is = new ByteArrayInputStream("".getBytes)
+    Console.withIn(is) {
+      a [java.io.EOFException] should be thrownBy SecretSantaImproved.createListOfNames
+    }
+  }
+
   it should "throw NumberFormatException for any non-integers" in {
     val is1 = new ByteArrayInputStream("a".getBytes)
     Console.withIn(is1) {

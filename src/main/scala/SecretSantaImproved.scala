@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 import scala.io.StdIn._
-import scala.util.Random
+import scala.util.{Random, Try}
 
 object SecretSantaImproved extends App {
 

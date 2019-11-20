@@ -1,6 +1,5 @@
 import scala.annotation.tailrec
 import scala.io.StdIn._
-import scala.language.postfixOps
 import scala.util.Random
 
 object SecretSantaImproved extends App {

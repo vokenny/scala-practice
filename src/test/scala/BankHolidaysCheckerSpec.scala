@@ -2,9 +2,9 @@ import java.time.LocalDate
 import java.time.format.DateTimeParseException
 
 import BankHolidaysChecker.{getFileLines, isBankHoliday}
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class BankHolidaysCheckerSpec extends FlatSpec {
+class BankHolidaysCheckerSpec extends AnyFlatSpec {
 
   val bankHolidays: List[LocalDate] = getFileLines("bank_holidays.csv")
     .map(e => LocalDate.parse(e.replaceAll(",", "")))

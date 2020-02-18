@@ -1,10 +1,11 @@
 import Arithmetic.ArithmeticOperations
 import Arithmetic.ArithmeticOperations._
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.matchers.should.Matchers
 import Arithmetic.S99Int._
+import org.scalatest.flatspec.AnyFlatSpec
 
 
-class ArithmeticOperationsSpec extends FlatSpec with Matchers {
+class ArithmeticOperationsSpec extends AnyFlatSpec with Matchers {
 
   "P31 Arithmetic Operations isPrime" should "return true for a Prime number" in {
     2.isPrime should be (true)

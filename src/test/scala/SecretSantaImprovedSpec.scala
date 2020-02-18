@@ -1,8 +1,9 @@
 import java.io.ByteArrayInputStream
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class SecretSantaImprovedSpec extends FlatSpec with Matchers {
+class SecretSantaImprovedSpec extends AnyFlatSpec with Matchers {
 
   "createListOfNames" should "create a list of Strings of size specified" in {
     val size = 5

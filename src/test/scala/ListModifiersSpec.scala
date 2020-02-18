@@ -1,7 +1,7 @@
 import Collections.ListModifiers
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class ListModifiersSpec extends FlatSpec {
+class ListModifiersSpec extends AnyFlatSpec {
 
   val fibonacciList: List[Int] = 1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil
   val palindromeList: List[Int] = List(1, 2, 3, 2, 1)

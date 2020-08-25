@@ -67,4 +67,27 @@ class S99LogicSpec extends AnyFlatSpec with Matchers {
     }
   }
 
+  "P49 S99Logic grayCodeUnordered" should "return List(\"0\", \"1\")" in {
+    S99Logic.grayCodeUnordered(1) should be (List("0", "1"))
+  }
+
+  "P49 S99Logic grayCodeUnordered" should "return all two-bit Gray Codes" in {
+    val grayCodes = List("00", "01", "11", "10")
+    grayCodes.foreach(c => S99Logic.grayCodeUnordered(2) should contain (c))
+  }
+
+  "P49 S99Logic grayCode" should "return List(\"0\", \"1\")" in {
+    S99Logic.grayCode(1) should be (List("0", "1"))
+  }
+
+  "P49 S99Logic grayCode" should "return all two-bit Gray Codes" in {
+    val grayCodes = List("00", "01", "11", "10")
+    S99Logic.grayCode(2) should be (grayCodes)
+  }
+
+  "P49 S99Logic grayCode" should "return all three-bit Gray Codes" in {
+    val grayCodes = List("000", "001", "011", "010", "110", "111", "101", "100")
+    S99Logic.grayCode(3) should be (grayCodes)
+  }
+
 }
